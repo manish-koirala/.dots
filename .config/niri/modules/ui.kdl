@@ -1,0 +1,17 @@
+// User Interface Configuration for Niri
+// Disable hotkey popup
+hotkey-overlay {
+	skip-at-startup
+}
+
+// Screen-shot path
+screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+
+
+// Animations
+animations {
+	slowdown 1.5
+}
+
+// Disable client-side decorations
+prefer-no-csd

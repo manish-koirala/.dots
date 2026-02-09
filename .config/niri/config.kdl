@@ -1,0 +1,19 @@
+// Include these configurations
+
+// Input Devices Configuration (Keyboard, Touchpad, Mouse, Touchscreen)
+include "modules/inputs.kdl"
+// Output Devices Configuration (Monitors)
+include "modules/outputs.kdl"
+// User Interface Configuration
+include "modules/ui.kdl"
+// Layouts Config
+include "modules/layouts.kdl"
+// Keybinds
+include "modules/keybinds.kdl"
+// Windows-specific Config
+include "modules/windows.kdl"
+// Autostart applications
+include "modules/autoexec.kdl"
+// Recent Windows Config (ALT+TAB)
+include "modules/recent-windows.kdl"
+

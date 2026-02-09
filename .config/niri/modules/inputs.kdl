@@ -1,0 +1,21 @@
+// Configuration File for Input Devices in Niri
+
+input {
+	keyboard {
+		xkb {
+			layout "us"
+			options "ctrl:nocaps"
+		}
+		numlock
+	}
+	touchpad {
+		tap
+		natural-scroll
+		scroll-method "two-finger"
+		disabled-on-external-mouse
+	}
+	mouse {
+		accel-profile "flat"
+		accel-speed 0
+	}
+}
