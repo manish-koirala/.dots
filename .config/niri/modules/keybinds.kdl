@@ -11,6 +11,8 @@ binds {
 	Alt+Shift+W hotkey-overlay-title="Start browser: firefox" { spawn "firefox"; }
 	Alt+Shift+F hotkey-overlay-title="Start file manager: nautilus" { spawn "nautilus"; }
 	Alt+Shift+R hotkey-overlay-title="Start pdf reader: zathura" { spawn "zathura"; }
+	Alt+Shift+C hotkey-overlay-title="Start colorpicker" { spawn-sh "grim -g \"$(slurp -p)\" -t ppm - | magick - -format '%[pixel:p{0,0}]' txt:- | tail -1 | cut -d' ' -f4 | wl-copy"; }
+
 
 	// Volume Keys
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ -l 1.0"; }

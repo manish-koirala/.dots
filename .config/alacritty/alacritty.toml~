@@ -8,6 +8,3 @@ style = "Regular"
 [window]
 padding = {x=12, y=12}
 
-[colors.primary]
-foreground = "#c0cbec"
-background = "#212337"
