@@ -15,7 +15,7 @@
         "tray",
 		"bluetooth",
         "wireplumber",
-        "backlight",
+		"backlight",
 		"battery",
         "clock",
 		"group/hardware"
@@ -64,7 +64,7 @@
         "spacing": 10
     },
     "clock": {
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt>{calendar}</tt>",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><big>{calendar}</big></tt>",
 		"format": "  {:%I:%M %p}",
         "format-alt": "  {:%a-%b-%d, %Y}"
     },
@@ -83,7 +83,10 @@
     },
     "backlight": {
         "format": "{percent}% {icon}",
-        "format-icons": ["", "", "", "", "", "", "", "", ""]
+        "format-icons": ["", "", "", "", "", "", "", "", ""],
+		"on-scroll-up": "brightnessctl -e2 set 4%+",
+		"on-scroll-down": "brightnessctl -e2 -n100 set 4%-",
+		"tooltip": false
     },
     "battery": {
         "states": {
@@ -113,7 +116,7 @@
     "network": {
         "format-wifi": "{essid} ({signalStrength}%)  ",
         "format-ethernet": "{ipaddr}/{cidr} 󰈀 ",
-        "tooltip-format": "",
+		"tooltip": false,
         "format-linked": "{ifname} (No IP)",
         "format-disconnected": "Disconnected ⚠",
         "format-alt": "{ifname}: {ipaddr}/{cidr}"
@@ -133,29 +136,32 @@
             "portable": "",
             "car": "",
             "default": ["", "", "󰕾"]
-        }
+        },
+		"on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ -l 1.0",
+		"on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-",
+		"tooltip": false
     },
     "bluetooth": {
-	"format": " {status}",
-	"format-connected": " {device_alias}",
-	"format-connected-battery": " {device_alias} {device_battery_percentage}%",
-	"tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
-	"tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
-	"tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
-	"tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
-	"on-click": "exec alacritty -e bluetoothctl"
+		"format": " {status}",
+		"format-connected": " {device_alias}",
+		"format-connected-battery": " {device_alias} {device_battery_percentage}%",
+		"tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+		"tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+		"tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+		"tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
+		"on-click": "exec alacritty -e bluetoothctl"
     },
     "custom/hardware": {
 		"format": " ",
-		"tooltip-format": ""
+		"tooltip": false
     },
     "group/hardware": {
 	    "orientation": "horizontal",
 	    "modules": [
-		"custom/hardware",
-		"power-profiles-daemon",
-		"cpu",
-		"memory",
+			"custom/hardware",
+			"power-profiles-daemon",
+			"cpu",
+			"memory",
        		"network"
 	    ],
 	    "drawer": {

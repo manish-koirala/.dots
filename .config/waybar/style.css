@@ -1,6 +1,6 @@
 * {
-    font-family: JetBrainsMonoNerd, Roboto, Helvetica, Arial, sans-serif;
-    font-size: 14px;
+    font-family: JetBrainsMonoNerdFont, Roboto, Helvetica, Arial, sans-serif;
+    font-size: 15px;
 }
 
 window#waybar {
@@ -83,11 +83,11 @@ button:hover {
 #memory,
 #disk,
 #temperature,
-#backlight,
 #network,
 #pulseaudio,
 #wireplumber,
 #custom-media,
+#backlight,
 #custom-hardware,
 #tray,
 #mode,
@@ -331,3 +331,5 @@ label:focus {
 #privacy-item.audio-out {
     background-color: #0069d4;
 }
+
+

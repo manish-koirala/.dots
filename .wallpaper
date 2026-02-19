@@ -1,0 +1,2 @@
+#!/bin/sh
+swaybg -m fill -i "/home/manish/Pictures/Wallpapers/frieren.jpg"

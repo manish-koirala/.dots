@@ -1,8 +1,10 @@
 // Execute programs during Niri startup
 spawn-at-startup "waybar"
 spawn-sh-at-startup "playerctld daemon"
-spawn-at-startup "mpd"
 spawn-at-startup "swaync"
 spawn-sh-at-startup "emacs --daemon"
-spawn-sh-at-startup "swaybg -i ~/Pictures/Wallpapers/frieren.jpg -m fill"
+// Spawn mpd if no other instance exists
+spawn-sh-at-startup "[ ! -s ~/.config/mpd/pid ] && mpd" 
+spawn-sh-at-startup "$HOME/.wallpaper"
 spawn-sh-at-startup "swayidle -w timeout 601 'niri msg action power-off-monitors' timeout 600 'swaylock -f' before-sleep 'swaylock -f'"
+spawn-sh-at-startup "wl-paste --watch cliphist store"

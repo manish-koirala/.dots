@@ -97,13 +97,17 @@
   :config
   (which-key-mode 1))
 
-(use-package mason ;; 
-:ensure t
-:config
-(mason-setup
-  (dolist (pkg '("basedpyright" "clangd" "typescript-language-server"))
-    (unless (mason-installed-p pkg)
-	(ignore-errors (mason-install pkg))))))
-
 (use-package pyvenv
 :ensure t)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages nil))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

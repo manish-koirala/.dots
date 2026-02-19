@@ -1,0 +1,87 @@
+#!/bin/sh
+# A simple shell script to start the application launcher in rofi
+# The application launcher launches common applications such as the color picker, wallpaper switcher, clipboard history selector, emoji selector and so on.
+
+export HOME='/home/manish'
+
+OPTIONS=(
+	"Color Picker"
+	"Wallpaper Selection"
+	"Emoji Selector"
+	"Browser"
+	"Code"
+	"Power Menu"
+	"Files"
+	"PDF Reader"
+	"Clipboard History"
+)
+IFS=$'\n'
+SELECTED="$(echo "${OPTIONS[*]}" | rofi -dmenu -i )"
+
+case "${SELECTED}" in
+    "Color Picker")
+	# pacman -S hyprpicker
+	COLOR=$(hyprpicker)
+	echo $COLOR | wl-copy
+	notify-send -w -t 1000 "Color Picker" "Selected color ${COLOR} has been copied to clipboard."
+	;;
+
+    "Browser")
+	# paru -S brave-bin
+	niri msg action spawn -- brave
+	;;
+
+    "Code")
+	# pacman -S emacs-wayland
+	niri msg action spawn-sh -- "emacsclient -c"
+	;;
+
+    "Clipboard History")
+	# pacman -S cliphist wl-clipboard
+	CLIP_LIST="$(cliphist list)"
+	CLIP_SELECTION="$(echo "${CLIP_LIST}" | rofi -dmenu -i | cliphist decode)"
+	[[ ! -z "${CLIP_SELECTION}" && "${CLIP_LIST}" =~ "${CLIP_SELECTION}" ]] &&
+	    echo "${CLIP_SELECTION}" | wl-copy
+		notify-send -w -t 1000 "Clipboard History" "Chosen item has been copied to clipboard."
+	;;
+
+    "Files")
+	# pacman -S xdg-desktop-portal-gnome
+	niri msg action spawn -- nautilus
+	;;
+
+    "PDF Reader")
+	# pacman -S zathura
+	niri msg action spawn -- zathura
+	;;
+
+    "Power Menu")
+	POWER_OP="$(echo -e "Shutdown\nReboot\nLogout" | rofi -dmenu -i)"
+	[[ $POWER_OP = "Shutdown" ]] && systemctl poweroff
+	[[ $POWER_OP = "Reboot" ]] && systemctl reboot
+	[[ $POWER_OP = "Logout" ]] && niri msg action quit -s
+	;;
+
+    "Emoji Selector")
+	# pacman -S rofi-emoji noto-fonts-emoji
+	EMOJI="$(rofi -modi emoji -show emoji -kb-secondary-copy "" -kb-custom-1 Return -kb-accept-entry Alt+1)"
+	[[ ! -z "$EMOJI" ]] && echo "$EMOJI" | wl-copy &&
+	notify-send -w -t 1000 "Emoji Selector" "Selected emoji has been copied to clipboard."
+	;;
+
+    "Wallpaper Selection")
+	# pacman -S swaybg
+	WALLPAPER="$(ls -1 $HOME/Pictures/Wallpapers | rofi -dmenu -i )"
+	if [[ ! -z "${WALLPAPER}" && -f "${HOME}/Pictures/Wallpapers/${WALLPAPER}" ]] ; then
+	    killall swaybg
+	    sed -i "/swaybg/c\\swaybg -m fill -i \"${HOME}/Pictures/Wallpapers/${WALLPAPER}\"" $HOME/.wallpaper # Change the wallpaper permanently
+	    niri msg action spawn -- $HOME/.wallpaper # Switch to the wallpaper.
+		notify-send -w -t 1000 "Wallpaper Selection" "Desktop wallpaper changed to ${WALLPAPER}"
+	fi
+	;;
+
+    *)
+	;;
+esac
+
+

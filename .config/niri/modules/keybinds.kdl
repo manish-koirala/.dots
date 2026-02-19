@@ -3,16 +3,11 @@
 binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
     Mod+Shift+Return hotkey-overlay-title="Open a Terminal: alacritty" { spawn "alacritty"; }
-    Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn-sh "rofi -show drun -show-icons -display-drun '>> ' "; }
+    Mod+P hotkey-overlay-title="Run an Application: fuzzel" { spawn-sh "rofi -show drun -show-icons -display-drun '>> ' "; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
 
 	// Application Launchers
-	Alt+Shift+P hotkey-overlay-title="Start project-management tool / Editor: emacs" { spawn-sh "emacsclient -c"; }
-	Alt+Shift+W hotkey-overlay-title="Start browser: firefox" { spawn "firefox"; }
-	Alt+Shift+F hotkey-overlay-title="Start file manager: nautilus" { spawn "nautilus"; }
-	Alt+Shift+R hotkey-overlay-title="Start pdf reader: zathura" { spawn "zathura"; }
-	Alt+Shift+C hotkey-overlay-title="Start colorpicker" { spawn-sh "grim -g \"$(slurp -p)\" -t ppm - | magick - -format '%[pixel:p{0,0}]' txt:- | tail -1 | cut -d' ' -f4 | wl-copy"; }
-
+	Mod+Shift+P hotkey-overlay-title="Application Launcher" { spawn "/home/manish/.local/bin/application-launcher"; }
 
 	// Volume Keys
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ -l 1.0"; }
@@ -27,8 +22,8 @@ binds {
     XF86AudioNext        allow-when-locked=true { spawn-sh "playerctl next"; }
 
 	// Brightness Keys
-    XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "-e3.1415" "--class=backlight" "set" "+7%"; }
-    XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "-e3.1415" "-n1000" "--class=backlight" "set" "7%-"; }
+    XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "-e2" "--class=backlight" "set" "+7%"; }
+    XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "-e2" "-n100" "--class=backlight" "set" "7%-"; }
 
     // Open/close the Overview: a zoomed-out view of workspaces and windows.
     Mod+O repeat=false { toggle-overview; }
@@ -237,7 +232,7 @@ binds {
     Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
 
     // The quit action will show a confirmation dialog to avoid accidental exits.
-    Mod+Shift+E { quit; }
+    // Mod+Shift+E { quit; }
     Ctrl+Alt+Delete { quit; }
 
     // Powers off the monitors. To turn them back on, do any input like

@@ -1,0 +1,11 @@
+[Added Associations]
+application/x-zerosize=org.pwmt.zathura.desktop;
+
+[Default Applications]
+application/pdf=org.pwmt.zathura.desktop
+image/png=imv.desktop
+image/jpg=imv.desktop
+image/jpeg=imv.desktop
+video/mp4=mpv.desktop
+audio/mp3=mpv.desktop
+video/mkv=mpv.desktop

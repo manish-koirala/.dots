@@ -182,17 +182,6 @@ Which key is a useful package that helps a beginner to learn emacs keystrokes by
     (which-key-mode 1))
 
 #+end_src
-** Mason
-Mason handles the local installation and management of language servers, linters, formatters, etc.
-#+begin_src elisp
-  (use-package mason ;; 
-  :ensure t
-  :config
-  (mason-setup
-    (dolist (pkg '("basedpyright" "clangd" "typescript-language-server"))
-      (unless (mason-installed-p pkg)
-	(ignore-errors (mason-install pkg))))))
-#+end_src
 ** Pyvenv
 This package helps in creation, activation and management of python’s virtual environments.
 #+begin_src elisp

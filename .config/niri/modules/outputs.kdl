@@ -1,7 +1,7 @@
 // Outputs configuration for Niri
 
 output "eDP-1" {
-	mode "1920x1080@60"
-	scale 1.25
+	mode "2560x1440@165"
+	scale 1.5
 	transform "normal"
 }
