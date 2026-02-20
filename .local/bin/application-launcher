@@ -15,6 +15,7 @@ OPTIONS=(
 	"PDF Reader"
 	"Clipboard History"
 	"Mail"
+	"Music"
 )
 IFS=$'\n'
 SELECTED="$(echo "${OPTIONS[*]}" | rofi -dmenu -i )"
@@ -67,6 +68,11 @@ case "${SELECTED}" in
     "Mail")
 	# pacman -S aerc
 	 niri msg action spawn-sh -- "alacritty --class 'Mail' -e 'aerc'" # Start the email client
+	;;
+
+    "Music")
+	# pacman -S aerc
+	 niri msg action spawn-sh -- "alacritty --class 'Music' -e 'ncmpcpp'" # Start the music client for mpd
 	;;
 
     *)

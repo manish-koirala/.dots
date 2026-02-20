@@ -26,6 +26,11 @@ window-rule {
 }
 
 window-rule {
+    match app-id=r#"Music$"#
+    open-maximized true
+}
+
+window-rule {
     match app-id=r#"^org\.keepassxc\.KeePassXC$"#
     match app-id=r#"^org\.gnome\.World\.Secrets$"#
     block-out-from "screen-capture"

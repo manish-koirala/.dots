@@ -2,23 +2,25 @@
 {
     "layer": "top", // Waybar at top layer
     "position": "top", // Waybar position (top|bottom|left|right)
-    "height": 30, // Waybar height (to be removed for auto height)
-    "spacing": 3, // Gaps between modules (4px)
+    "height": 32, // Waybar height (to be removed for auto height)
+    "spacing": 2, // Gaps between modules (4px)
 
     // Choose the order of the modules
     "modules-left": [
+        "clock",
+        "tray",
         "niri/workspaces"
     ],
     "modules-center": [
     ],
     "modules-right": [
-        "tray",
+	    	"mpd",
 		"bluetooth",
-        "wireplumber",
+        	"wireplumber",
 		"backlight",
 		"battery",
-        "clock",
-		"group/hardware"
+		"group/hardware",
+		"custom/power"
     ],
 
     // Modules configuration
@@ -33,6 +35,7 @@
 		}
     },
     "mpd": {
+	"server": "/home/manish/.local/state/mpd/socket",
         "format": "{stateIcon} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩  ",
         "format-disconnected": "Disconnected ",
         "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped  ",
@@ -98,9 +101,7 @@
         "format-full": "{capacity}% {icon}",
         "format-charging": "{capacity}% 󰂄",
         "format-plugged": "{capacity}% ",
-        "format-alt": "{time} {icon}",
-        "format-icons": ["", "", "", "", ""],
-	"on-click": null
+        "format-icons": ["", "", "", "", ""]
     },
     "power-profiles-daemon": {
       "format": "{icon} ",
@@ -152,8 +153,13 @@
 		"on-click": "exec alacritty -e bluetoothctl"
     },
     "custom/hardware": {
-		"format": " ",
+		"format": "",
 		"tooltip": false
+    },
+    "custom/power": {
+		"format": "⏻",
+		"tooltip": false,
+		"on-click": "exec /home/manish/.local/bin/power-menu"
     },
     "group/hardware": {
 	    "orientation": "horizontal",
@@ -166,7 +172,7 @@
 	    ],
 	    "drawer": {
 	    	"click-to-reveal": true,
-			"transition-left-to-right": false
+		"transition-left-to-right": false
 	    }
     }
 }
