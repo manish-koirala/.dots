@@ -10,7 +10,7 @@ bindkey -e
 export ZSH="$HOME/.zsh"
 
 # Default Editor
-export EDITOR="nvim"
+export EDITOR="vim"
 export PATH="$PATH:$HOME/.local/bin"
 export MANPATH="$MANPATH:$HOME/.local/share/man"
 
@@ -35,9 +35,8 @@ alias ll='ls --color=auto -lah'
 alias yt-mus='yt-dlp -x --audio-format=opus --audio-quality 0 --embed-thumbnail --add-metadata' # Be sure to install yt-dlp and (python-mutagen for metadata)
 alias nf='fastfetch'
 alias dots='git --work-tree=$HOME --git-dir=$HOME/.dots'
-alias vim='nvim'
-alias vi='nvim'
 alias mail='aerc'
+alias music='ncmpcpp'
 
 # Prompt Configuration
 if [[ ! $(tty) =~ "/dev/tty." ]] ; then 
