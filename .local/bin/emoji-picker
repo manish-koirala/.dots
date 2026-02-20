@@ -1,0 +1,7 @@
+#!/bin/sh
+# Simple shell script to grab an emoji
+
+# pacman -S rofi-emoji noto-fonts-emoji
+EMOJI="$(rofi -modi emoji -show emoji -kb-secondary-copy "" -kb-custom-1 Return -kb-accept-entry Alt+1)"
+[[ ! -z "$EMOJI" ]] && echo "$EMOJI" | wl-copy
+

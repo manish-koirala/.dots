@@ -1,0 +1,8 @@
+#!/bin/sh
+# Power menu
+
+POWER_OP="$(echo -e "Shutdown\nReboot\nLogout" | rofi -dmenu -i)"
+[[ $POWER_OP = "Shutdown" ]] && systemctl poweroff
+[[ $POWER_OP = "Reboot" ]] && systemctl reboot
+[[ $POWER_OP = "Logout" ]] && niri msg action quit -s
+

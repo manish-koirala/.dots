@@ -16,7 +16,12 @@ window-rule {
 }
 
 window-rule {
-    match app-id=r#"Alacritty$"# title="^code$" 
+    match app-id=r#"Code$"#
+    open-maximized true
+}
+
+window-rule {
+    match app-id=r#"Mail$"#
     open-maximized true
 }
 

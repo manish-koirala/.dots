@@ -1,0 +1,10 @@
+#!/bin/sh
+# A simple script to change wallpapers
+
+WALLPAPER="$(ls -1 $HOME/Pictures/Wallpapers | rofi -dmenu -i )"
+if [[ ! -z "${WALLPAPER}" && -f "${HOME}/Pictures/Wallpapers/${WALLPAPER}" ]] ; then
+    killall swaybg
+    sed -i "/swaybg/c\\swaybg -m fill -i \"${HOME}/Pictures/Wallpapers/${WALLPAPER}\"" $HOME/.wallpaper # Change the wallpaper permanently
+    niri msg action spawn -- $HOME/.wallpaper # Switch to the wallpaper.
+	notify-send -w -t 1000 "Wallpaper Selection" "Desktop wallpaper changed to ${WALLPAPER}"
+fi

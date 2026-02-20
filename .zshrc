@@ -37,6 +37,7 @@ alias nf='fastfetch'
 alias dots='git --work-tree=$HOME --git-dir=$HOME/.dots'
 alias vim='nvim'
 alias vi='nvim'
+alias mail='aerc'
 
 # Prompt Configuration
 if [[ ! $(tty) =~ "/dev/tty." ]] ; then 

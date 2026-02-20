@@ -1,0 +1,6 @@
+#!/bin/sh
+# Select an item from clipboard history
+CLIP_LIST="$(cliphist list)"
+CLIP_SELECTION="$(echo "${CLIP_LIST}" | rofi -dmenu -i | cliphist decode)"
+[[ ! -z "${CLIP_SELECTION}" && "${CLIP_LIST}" =~ "${CLIP_SELECTION}" ]] &&
+	echo "${CLIP_SELECTION}" | wl-copy
