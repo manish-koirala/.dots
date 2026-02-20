@@ -7,7 +7,7 @@ export HOME='/home/manish'
 OPTIONS=(
 	"Color Picker"
 	"Wallpaper Selection"
-	"Emoji Selector"
+	"Emoji Selector"  
 	"Browser"
 	"Code"
 	"Power Menu"
@@ -32,8 +32,8 @@ case "${SELECTED}" in
 	;;
 
     "Code")
-	# pacman -S emacs-wayland
-	niri msg action spawn-sh -- "emacsclient -c"
+	# paru -S visual-studio-code-bin
+	niri msg action spawn-sh -- "alacritty -T 'code' -e 'nvim'"
 	;;
 
     "Clipboard History")
