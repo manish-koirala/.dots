@@ -2,8 +2,6 @@
 # A simple shell script to start the application launcher in rofi
 # The application launcher launches common applications such as the color picker, wallpaper switcher, clipboard history selector, emoji selector and so on.
 
-export HOME='/home/manish'
-
 OPTIONS=(
 	"Color Picker"
 	"Wallpaper Selection"
@@ -33,12 +31,12 @@ case "${SELECTED}" in
 
     "Code")
 	# paru -S visual-studio-code-bin
-	niri msg action spawn-sh -- "alacritty --class 'Code' -e $HOME/.local/bin/code"
+	niri msg action spawn-sh -- "alacritty --class 'Code' -e ~/.local/bin/code"
 	;;
 
     "Clipboard History")
 	# pacman -S cliphist wl-clipboard
-	$HOME/.local/bin/clipboard
+	~/.local/bin/clipboard
 	;;
 
     "Files")
@@ -52,22 +50,22 @@ case "${SELECTED}" in
 	;;
 
     "Power Menu")
-	$HOME/.local/bin/power-menu
+	~/.local/bin/power-menu
 	;;
 
     "Emoji Selector")
 	# pacman -S rofi-emoji noto-fonts-emoji
-	$HOME/.local/bin/emoji-picker	
+	~/.local/bin/emoji-picker	
 	;;
 
     "Wallpaper Selection")
 	# pacman -S swaybg
-	$HOME/.local/bin/wallpapers
+	~/.local/bin/wallpapers
 	;;
 
     "Mail")
 	# pacman -S aerc
-	 niri msg action spawn-sh -- "alacritty --class 'Mail' -e 'aerc'" # Start the email client
+	 niri msg action spawn-sh -- "alacritty --class 'Mail' -e aerc" # Start the email client
 	;;
 
     "Music")

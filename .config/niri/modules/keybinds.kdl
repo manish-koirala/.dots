@@ -7,10 +7,10 @@ binds {
     // Application Launchers
     Mod+Shift+Return hotkey-overlay-title="Open a Terminal: alacritty" { spawn "alacritty"; }
     Mod+P hotkey-overlay-title="Run an Application: fuzzel" { spawn-sh "rofi -show drun -show-icons -display-drun '>> ' "; }
-    Mod+Shift+P hotkey-overlay-title="Application Launcher" { spawn "/home/manish/.local/bin/application-launcher"; }
-    Mod+Shift+Period hotkey-overlay-title="Emoji Selector" { spawn "/home/manish/.local/bin/emoji-picker" ;}  
-    Mod+Shift+Comma hotkey-overlay-title="Clipboard History" { spawn "/home/manish/.local/bin/clipboard" ;}
-    Ctrl+Alt+Delete hotkey-overlay-title="Power Menu" { spawn "/home/manish/.local/bin/power-menu"; }
+    Mod+Shift+P hotkey-overlay-title="Application Launcher" { spawn "~/.local/bin/application-launcher"; }
+    Mod+Shift+Period hotkey-overlay-title="Emoji Selector" { spawn "~/.local/bin/emoji-picker" ;}  
+    Mod+Shift+Comma hotkey-overlay-title="Clipboard History" { spawn "~/.local/bin/clipboard" ;}
+    Ctrl+Alt+Delete hotkey-overlay-title="Power Menu" { spawn "~/.local/bin/power-menu"; }
 
 	// Volume Keys
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ -l 1.0"; }
