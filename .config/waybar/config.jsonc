@@ -97,11 +97,11 @@
             "warning": 30,
             "critical": 15
         },
+        "format-icons": ["", "", "", "", ""],
         "format": "{capacity}% {icon}",
         "format-full": "{capacity}% {icon}",
         "format-charging": "{capacity}% 󰂄",
-        "format-plugged": "{capacity}% ",
-        "format-icons": ["", "", "", "", ""]
+        "format-plugged": "{capacity}% "
     },
     "power-profiles-daemon": {
       "format": "{icon} ",

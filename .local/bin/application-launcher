@@ -21,17 +21,17 @@ SELECTED="$(echo "${OPTIONS[*]}" | rofi -dmenu -i )"
 case "${SELECTED}" in
     "Color Picker")
 	# pacman -S hyprpicker
-	niri msg action spawn-sh -- "hyprpicker | wl-copy"
+	echo -n $(hyprpicker) | wl-copy
 	;;
 
     "Browser")
 	# paru -S brave-bin
-	niri msg action spawn -- brave
+	brave
 	;;
 
     "Code")
-	# paru -S visual-studio-code-bin
-	niri msg action spawn-sh -- "alacritty --class 'Code' -e ~/.local/bin/code"
+	# pacman -S neovim
+	alacritty --class 'Code' -e nvim
 	;;
 
     "Clipboard History")
@@ -41,12 +41,12 @@ case "${SELECTED}" in
 
     "Files")
 	# pacman -S xdg-desktop-portal-gnome
-	niri msg action spawn -- nautilus
+	nautilus
 	;;
 
     "PDF Reader")
 	# pacman -S zathura
-	niri msg action spawn -- zathura
+	zathura
 	;;
 
     "Power Menu")
@@ -65,12 +65,12 @@ case "${SELECTED}" in
 
     "Mail")
 	# pacman -S aerc
-	 niri msg action spawn-sh -- "alacritty --class 'Mail' -e aerc" # Start the email client
+	alacritty --class 'Mail' -e aerc
 	;;
 
     "Music")
-	# pacman -S aerc
-	 niri msg action spawn-sh -- "alacritty --class 'Music' -e 'ncmpcpp'" # Start the music client for mpd
+	# pacman -S ncmpcpp
+	alacritty --class 'Music' -e 'ncmpcpp'
 	;;
 
     *)
