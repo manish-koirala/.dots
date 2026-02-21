@@ -7,8 +7,8 @@ style = "Regular"
 
 [window]
 padding = {x=12, y=12}
-opacity = 0.9
+opacity = 0.95
 
 [colors.primary]
 foreground = "#c0cbec"
-background = "#1C252E"
+background = "#161E23"
