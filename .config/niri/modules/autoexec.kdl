@@ -7,3 +7,4 @@ spawn-sh-at-startup "[ ! -s ~/.config/mpd/pid ] && mpd && mpd-mpris -host ~/.loc
 spawn-sh-at-startup "$HOME/.wallpaper"
 spawn-sh-at-startup "swayidle -w timeout 601 'niri msg action power-off-monitors' timeout 600 'swaylock -f' before-sleep 'swaylock -f'"
 spawn-sh-at-startup "wl-paste --watch cliphist store"
+spawn-sh-at-startup "gammastep -l 27.700769:85.300140"
